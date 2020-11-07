@@ -17,7 +17,20 @@
 # Користени технологии
 
 * PHP
-* MySql
+* JSON
 * Git
+## База на податоци
 
+За база на податоци користиме обична JSON датотека која ја лоадираме и изменуваме на секоја промена.
+# Како да ги извршувате скриптите?
+
+Најпрво инталирајте php и извршувајте ги скриптите со помош на command prompt или git bash отворени во тековниот директориум.
+
+Пример.
+php pipe.php {command} {options}
+
+{command} може да биде:
+insert_place {options name=Ime;city=Gevgelija;category=Education}
+insert_city {name}
+insert_category {name}
 
