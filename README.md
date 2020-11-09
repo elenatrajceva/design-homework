@@ -42,8 +42,7 @@
 php pipe.php {command} {options}
 
 {command} може да биде: <br/>
-insert_place {options name=Ime;city=Gevgelija;category=Education} <br/>
-insert_city {name} <br/>
+insert_place {options name=Ime;category=Education} <br/>
 insert_category {name}
 
 # Членови во групата:
