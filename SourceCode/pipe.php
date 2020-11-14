@@ -24,14 +24,14 @@ try {
 			$filter = extract_filter($argv[2] ?? "");
 			insert_place($filter);
 			break;
-		case 'insert_city';
+		/*case 'insert_city';
 			insert_city($argv[2] ?? null);
-			break;
+			break;*/
 		case 'insert_category';
 			insert_category($argv[2] ?? null);
 			break;
-		case 'get_all_cities':
-			$cities = get_all_cities();
+		/*case 'get_all_cities':
+			$cities = get_all_cities();*/
 			foreach ($cities as $id => $city) {
 				echo "ID: " . $id . "\tName: " . $city . "\n";
 			}
