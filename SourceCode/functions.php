@@ -23,30 +23,30 @@ function load()
     $content = fread($database, filesize(DATABASE_FILE));
     return json_decode($content, true);
 }
-function get_city_by_id($city_id){
+/*function get_city_by_id($city_id){
     $cities = get_all_cities();
     return $cities[$city_id];
-}
+}*/
 function get_category_by_id($category_id){
     $categories = get_all_categories();
     return $categories[$category_id];
 }
 function insert_place($place){
     if(!isset($place["name"])) throw new Exception("Place name not provided");
-    if(!isset($place["city_id"]) || !get_city_by_id($place["city_id"]) ) throw new Exception("City not provided or not exists");
+    /*if(!isset($place["city_id"]) || !get_city_by_id($place["city_id"]) ) throw new Exception("City not provided or not exists");*/
     if(!isset($place["category_id"]) || !get_category_by_id($place["category_id"])) throw new Exception("Category not provided or not exists");
     $database = load();
     $database["places"][] = $place;
     save($database);
 };
 
-function insert_city($city){
+/*function insert_city($city){
     if(!isset($city)) throw new Exception("City name not provided");
     $database = load();
     if(in_array($city, $database["cities"]))throw new Exception("City already exists");
     $database["cities"][] = $city;
     save($database);
-}
+}*/
 function insert_category($category){
     if(!isset($category)) throw new Exception("Category name not provided");
     $database = load();
@@ -54,10 +54,10 @@ function insert_category($category){
     $database["categories"][] = $category;
     save($database);
 }
-function get_all_cities(){
+/*function get_all_cities(){
     $database = load();
     return $database["cities"];
-}
+}*/
 function get_all_categories(){
     $database = load();
     return $database["categories"];
