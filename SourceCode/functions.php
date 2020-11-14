@@ -4,7 +4,7 @@ define('DATABASE_FILE', "database.json");
 function init()
 {
     $database = [
-        "cities" => [],
+        /*"cities" => [],*/
         "categories" => [],
         "places" => []
     ];
