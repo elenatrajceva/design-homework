@@ -31,26 +31,14 @@
 
 # Користени технологии
 
-* PHP
-* JSON
+* Osmfilter
+* Osmconverter
 * Git
-
-*Osmfilter;osmconverter
 
 ## База на податоци
 
-За база на податоци користиме обична JSON датотека која ја лоадираме и изменуваме на секоја промена.
+Базата на податоци ја направивме од .osm фајл со помош на command prompt команда.
 
-# Како да ги извршувате скриптите?
-
-Најпрво инталирајте php и извршувајте ги скриптите со помош на command prompt или git bash отворени во тековниот директориум.
-
-Пример: <br/>
-php pipe.php {command} {options}
-
-{command} може да биде: <br/>
-insert_place {options name=Ime;category=Education} <br/>
-insert_category {name}
 
 # Членови во групата:
 Теа Теофилова 181268<br/>
