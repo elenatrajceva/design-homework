@@ -1,1 +1,0 @@
-osmfilter skopje-del.osm --keep="amenity=cafe" | osmconvert64-0.8.8p.exe - --all-to-nodes --csv="@id @lon @lat name:en" --csv-headline --csv-separator="," -o="kafe-bar.csv"
