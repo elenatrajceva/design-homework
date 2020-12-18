@@ -1,0 +1,43 @@
+body{
+    background-color: black;
+    color: white;
+    font-family: Calibri, serif;
+    font-style: italic;
+    text-align: center;
+    font-size: 25px;
+}
+
+a {
+    border: solid 1px whitesmoke;
+    width: 30px;
+    color: whitesmoke;
+    text-decoration: none;
+}
+a:hover{
+    background-color: #1b1e20;
+}
+input{
+    background-color: black;
+    color: white;
+    width: 400px;
+    height: 50px;
+}
+button{
+    background-color: #1b1e20;
+    color: white;
+    width: 100px;
+    height: 25px;
+}
+#wrapper{
+    display:block;
+    max-width: 1200px;
+    margin:0 auto;
+}
+#logoHomepage{
+    max-width:70%;
+    display: block;
+    margin:0 auto;
+}
+.clearfix{
+    clear:both;
+}
