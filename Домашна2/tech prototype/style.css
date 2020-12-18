@@ -1,10 +1,12 @@
-body{
+body, html{
     background-color: black;
     color: white;
     font-family: Calibri, serif;
     font-style: italic;
     text-align: center;
     font-size: 25px;
+    margin:0;
+    padding:0
 }
 
 #buttons a {
@@ -13,9 +15,7 @@ body{
     color: whitesmoke;
     text-decoration: none;
 }
-a:hover{
-    background-color: #1b1e20;
-}
+
 input{
     background-color: black;
     color: white;
@@ -35,10 +35,68 @@ button{
     margin:0 auto;
 }
 #logoHomepage{
-    width:60%;
+    width:50%;
     display: block;
     margin:0 auto;
 }
 .clearfix{
     clear:both;
+}
+#logoOther{
+    width: 300px;
+    display:block;
+    float:right;
+}
+#logoMap{
+    width:35%;
+}
+#logoMap img{
+    max-width:95%;
+    height:100%;
+}
+.bigButtons{
+    border: solid 1px whitesmoke;
+    color: whitesmoke;
+    text-decoration: none;
+    padding: 10px 10px 10px 10px;
+}
+.bigButtons:hover{
+    background-color: #1b1e20;
+}
+.bigText{
+    font-family: Calibri, serif;
+    font-size: 40px;
+    font-style: italic;
+}
+.loggedIn{
+    margin-top:100px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#search{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    flex: 0 1 60px;
+    box-sizing:border-box;
+    padding:10px;
+}
+.searchField{
+    display: flex;
+    background-color: #1b1e20;
+    width: 70%;
+    margin-top: 20px;
+    color: white
+}
+#map {
+    /* configure the size of the map */
+    flex: 1 1 auto;
+}
+#mapLayout{
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
 }

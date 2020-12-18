@@ -27,11 +27,11 @@ function register() {
     let password = document.getElementById('passwordField').value;
     let passwordRepeat = document.getElementById('repeatPasswordField').value;
     if(email === '' || password === '' || passwordRepeat === ''){
-        console.log(language = 'en' ? 'All fields are required!' : "Сите полиња се задолжителни");
+        alert(language = 'en' ? 'All fields are required!' : "Сите полиња се задолжителни");
         return;
     }
     if(password !== passwordRepeat){
-        console.log(language == 'en' ? 'Passwords not match' : 'Лозинките не се совпаѓаат');
+        alert(language == 'en' ? 'Passwords not match' : 'Лозинките не се совпаѓаат');
         return ;
     }
     
@@ -50,16 +50,22 @@ function register() {
             // ..
         });
 }
-
+function logout(){
+    localStorage.removeItem('user')
+    localStorage.removeItem('userId')
+    location.href='homepage.html'
+}
 function login() {
+    let button = document.getElementById('loginButton');
+
     let email = document.getElementById('emailField').value;
     let password = document.getElementById('passwordField').value;
 
     if(email === '' || password === '' ){
-        console.log(language = 'en' ? 'All fields are required!' : "Сите полиња се задолжителни");
+        alert(language = 'en' ? 'All fields are required!' : "Сите полиња се задолжителни");
         return;
     }
-
+    button.innerText = button.innerText+" - loading";
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then((user) => {
             if(user){
@@ -71,17 +77,40 @@ function login() {
         .catch((error) => {
             var errorCode = error.code;
             var errorMessage = error.message;
-        });
+            alert(errorMessage)
+        }).finally(()=>{
+            button.innerText = button.innerText.replace('- loading', '')
+    })
 }
-
-let l = location.pathname;
+function redirect() {
+    let l = location.pathname;
 // redirect to users-only or guests only
-if(l.indexOf('homepage') !== -1 || l.indexOf('register') !== -1){
-    if(localStorage.getItem('user')){
-        location.href = 'where.html';
-    }
-}else{
-    if(!localStorage.getItem('user')){
-        location.href = 'homepage.html';
+    if (l.indexOf('homepage') !== -1 || l.indexOf('register') !== -1) {
+        if (localStorage.getItem('user')) {
+            location.href = 'where.html';
+        }
+    } else {
+        if (!localStorage.getItem('user')) {
+            location.href = 'homepage.html';
+        }
     }
 }
+redirect();
+
+function initMap() {
+    // initialize Leaflet
+    var map = L.map('map').setView({lon: 21.4338, lat: 41.9987}, 15);
+
+    // add the OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        //attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+    }).addTo(map);
+
+    // show the scale bar on the lower left corner
+    L.control.scale().addTo(map);
+
+    // show a marker on the map
+    L.marker({lon: 21.4338, lat: 41.9987}).addTo(map);//.bindPopup('The center of the world').addTo(map);
+}
+initMap();
