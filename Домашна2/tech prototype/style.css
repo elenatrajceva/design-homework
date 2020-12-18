@@ -7,7 +7,7 @@ body{
     font-size: 25px;
 }
 
-a {
+#buttons a {
     border: solid 1px whitesmoke;
     width: 30px;
     color: whitesmoke;
@@ -25,8 +25,9 @@ input{
 button{
     background-color: #1b1e20;
     color: white;
-    width: 100px;
+    min-width: 100px;
     height: 25px;
+
 }
 #wrapper{
     display:block;
@@ -34,7 +35,7 @@ button{
     margin:0 auto;
 }
 #logoHomepage{
-    max-width:70%;
+    width:60%;
     display: block;
     margin:0 auto;
 }

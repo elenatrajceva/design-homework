@@ -1,37 +1,87 @@
-let language = 'en'; 
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+var firebaseConfig = {
+    apiKey: "AIzaSyD8al2W2LFomiCSCV57kXJs1R3Bt5KVmHw",
+    authDomain: "design-architecture-homework.firebaseapp.com",
+    projectId: "design-architecture-homework",
+    storageBucket: "design-architecture-homework.appspot.com",
+    messagingSenderId: "338390459397",
+    appId: "1:338390459397:web:2b0ad671239d0a5c4be86c",
+    measurementId: "G-Q07CP4QKX7"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
+
+function lang(){
+    return localStorage.getItem('lang') || 'en';
+}
 function setLang(lang) {
-    language = lang;
+    localStorage.setItem('lang', lang);
     localization();
 }
 
-
-
-
-(function() {
-   
-    localization();
- 
- })()
-
-function localization() {
-    if (language == 'mk') {
-        document.getElementById('loginText').innerText = 'Најавете се';
-        document.getElementById('loginButton').innerText = 'Најавете се';
-        document.getElementById('registerButton').innerText = 'Зачленете се';
-        document.getElementById('or').innerText = 'Или';
-        document.getElementById('emailField').placeholder = 'Вашата електронска пошта';
-        document.getElementById('passwordField').placeholder = 'Вашата лозинка';
-
+function register() {
+    let email = document.getElementById('emailField').value;
+    let password = document.getElementById('passwordField').value;
+    let passwordRepeat = document.getElementById('repeatPasswordField').value;
+    if(email === '' || password === '' || passwordRepeat === ''){
+        console.log(language = 'en' ? 'All fields are required!' : "Сите полиња се задолжителни");
+        return;
     }
-    if (language == 'en') {
-        document.getElementById('loginText').innerText = 'Login';
-        document.getElementById('loginButton').innerText = 'Login';
-        document.getElementById('registerButton').innerText = 'Register';
-        document.getElementById('or').innerText = 'Or';
-        document.getElementById('emailField').placeholder = 'Your email address';
-        document.getElementById('passwordField').placeholder = 'Your password';
+    if(password !== passwordRepeat){
+        console.log(language == 'en' ? 'Passwords not match' : 'Лозинките не се совпаѓаат');
+        return ;
+    }
+    
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((user) => {
+            if(user){
+                localStorage.setItem('user', user.user.email)
+                localStorage.setItem('userId', user.user.uid)
+                location.href = 'where.html';
 
+            }
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ..
+        });
+}
+
+function login() {
+    let email = document.getElementById('emailField').value;
+    let password = document.getElementById('passwordField').value;
+
+    if(email === '' || password === '' ){
+        console.log(language = 'en' ? 'All fields are required!' : "Сите полиња се задолжителни");
+        return;
     }
 
+    firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((user) => {
+            if(user){
+                localStorage.setItem('user', user.user.email)
+                localStorage.setItem('userId', user.user.uid)
+                location.href = 'where.html';
+            }
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+        });
+}
+
+let l = location.pathname;
+// redirect to users-only or guests only
+if(l.indexOf('homepage') !== -1 || l.indexOf('register') !== -1){
+    if(localStorage.getItem('user')){
+        location.href = 'where.html';
+    }
+}else{
+    if(!localStorage.getItem('user')){
+        location.href = 'homepage.html';
+    }
 }
