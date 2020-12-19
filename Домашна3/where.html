@@ -14,6 +14,7 @@
     <div class="clearfix"></div>
 
     <div class="bigText">
+        <p id="tekst"></p>
         <p id="where"></p>
         <a class="bigButtons"  id="oldBazaar" href="cafes.html?where=oldbazaar" target="_self"></a><br><br>
         <a class="bigButtons" id="skopjeCenter" href="cafes.html?where=skopjecenter" target="_self"></a>
@@ -30,6 +31,9 @@
     function localization() {
         document.getElementById('userEmail').innerText = localStorage.getItem('user');
         if (lang() === 'mk') {
+            document.getElementById('tekst').innerText = 'Корисниците на нашата веб-страница кои имаат картички за добивање поени за лојалност во нашите кафулиња можат полесно да најдат места каде да ги освојат бодовите. . .\n' +
+                'Со посета на кафулиња кај Старата чаршија имате 10 поени, во спротивно доколку ги посетите нашите места во центарот на Скопје имате 15 поени.\n' +
+                'Дојдете да не посетите и да ги испиете најдобрите кафиња досега.';
             document.getElementById('where').innerText = 'Каде сакате да одите?';
             document.getElementById('oldBazaar').innerText = 'Стара чаршија';
             document.getElementById('skopjeCenter').innerText = 'Центар Скопје';
@@ -38,6 +42,9 @@
 
         }
         if (lang() === 'en') {
+            document.getElementById('tekst').innerText = 'Users of our website who have cards for gaining loyalty points at our cafes can find places more easy where to gain the points . . .\n' +
+                'By visiting cafes at Old Bazaar you have 10 points, otherwise if you visit our places in center of Skopje you have 15 points.\n' +
+                'Come visit us, and drink the best coffees ever.';
             document.getElementById('where').innerText = 'Where do you want to go?';
             document.getElementById('oldBazaar').innerText = 'Old Bazaar';
             document.getElementById('skopjeCenter').innerText = 'Center of Skopje';
