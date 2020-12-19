@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:https="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Coffe Hunters</title>
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css"/>
     <link rel="stylesheet" href="style.css">
 </head>
 <body id="mapLayout">
@@ -19,6 +19,26 @@
 <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase.js"></script>
 <script src="javascript.js"></script>
 <script>
+
+    function initMap() {
+        // initialize Leaflet
+        var map = L.map('map').setView({lon: 21.4338, lat: 41.9987}, 15);
+
+        // add the OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            //attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+        }).addTo(map);
+
+        // show the scale bar on the lower left corner
+        L.control.scale().addTo(map);
+
+        // show a marker on the map
+        L.marker({lon: 21.4338, lat: 41.9987}).addTo(map);//.bindPopup('The center of the world').addTo(map);
+    }
+
+    initMap();
+
     function localization() {
         if (lang() === 'mk') {
 

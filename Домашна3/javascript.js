@@ -96,21 +96,3 @@ function redirect() {
     }
 }
 redirect();
-
-function initMap() {
-    // initialize Leaflet
-    var map = L.map('map').setView({lon: 21.4338, lat: 41.9987}, 15);
-
-    // add the OpenStreetMap tiles
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        //attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
-    }).addTo(map);
-
-    // show the scale bar on the lower left corner
-    L.control.scale().addTo(map);
-
-    // show a marker on the map
-    L.marker({lon: 21.4338, lat: 41.9987}).addTo(map);//.bindPopup('The center of the world').addTo(map);
-}
-initMap();
