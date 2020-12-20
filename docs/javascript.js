@@ -53,7 +53,7 @@ function register() {
 function logout(){
     localStorage.removeItem('user')
     localStorage.removeItem('userId')
-    location.href='homepage.html'
+    location.href='index.html'
 }
 function login() {
     let button = document.getElementById('loginButton');
