@@ -85,7 +85,8 @@ function login() {
 function redirect() {
     let l = location.pathname;
 // redirect to users-only or guests only
-    if (l.indexOf('index') !== -1 || l.indexOf('register') !== -1) {
+    console.log(l);
+    if (l[l.length-1] === '/' || l.indexOf('index') !== -1 || l.indexOf('register') !== -1) {
         if (localStorage.getItem('user')) {
             location.href = 'where.html';
         }
