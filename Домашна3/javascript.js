@@ -85,13 +85,13 @@ function login() {
 function redirect() {
     let l = location.pathname;
 // redirect to users-only or guests only
-    if (l.indexOf('homepage') !== -1 || l.indexOf('register') !== -1) {
+    if (l.indexOf('index') !== -1 || l.indexOf('register') !== -1) {
         if (localStorage.getItem('user')) {
             location.href = 'where.html';
         }
     } else {
         if (!localStorage.getItem('user')) {
-            location.href = 'homepage.html';
+            location.href = 'index.html';
         }
     }
 }
