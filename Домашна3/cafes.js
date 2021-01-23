@@ -11,7 +11,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 L.control.scale().addTo(map);
 
 
-/*getLocation();
+getLocation();
 function getLocation() {
     //if user's location settings is disabled this wont show marker
     map.locate({
@@ -22,7 +22,7 @@ function getLocation() {
             var marker = new L.marker(e.latlng);
             marker.addTo(map);
         });
-}*/
+}
 
 function loadLocations(where) {
     $.ajax({
