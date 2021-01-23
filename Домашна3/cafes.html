@@ -10,19 +10,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body id="mapLayout">
-<div id="search">
-    <input type="text" placeholder="Where to?" class="searchField">
-    <a href="where.html" id="logoMap">
-        <img src="logo.png">
-    </a>
-</div>
-<div id="map"></div>
-<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase.js"></script>
-<script src="javascript.js"></script>
-<script src="cafes.js"></script>
-<script>
-
-  
+    <input id="searchbar" onkeyup="search_animal()" type="text"
+        name="search" placeholder="Search animals.."> 
+      
+    <!-- ordered list -->
+    <ol id='list'> 
+        <li class="animals">Cat</li> 
+        <li class="animals">Dog</li> 
+        <li class="animals">Elephant</li> 
+        <li class="animals">Fish</li> 
+        <li class="animals">Gorilla</li> 
+        <li class="animals">Monkey</li> 
+        <li class="animals">Turtle</li> 
+        <li class="animals">Whale</li> 
+        <li class="animals">Aligator</li> 
+        <li class="animals">Donkey</li> 
+        <li class="animals">Horse</li> 
+    </ol> 
+      
+    <!-- linking javscript -->
+    <script src="./animals.js"></script> 
 
     function localization() {
         if (lang() === 'mk') {
