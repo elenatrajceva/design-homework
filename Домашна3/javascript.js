@@ -26,8 +26,8 @@ function register() {
     let email = document.getElementById('emailField').value;
     let password = document.getElementById('passwordField').value;
     let passwordRepeat = document.getElementById('repeatPasswordField').value;
-   // if(email === '' || password === '' || passwordRepeat === ''){
-       // alert(language = 'en' ? 'All fields are required!' : "Сите полиња се задолжителни");
+      if(email === '' || password === '' || passwordRepeat === ''){
+        alert(language = 'en' ? 'All fields are required!' : "Сите полиња се задолжителни");
        //return;
     
     if(password !== passwordRepeat){ 
