@@ -30,10 +30,14 @@ function register() {
         alert(language = 'en' ? 'All fields are required!' : "Сите полиња се задолжителни");
         return;
     }
-    //if(password !== passwordRepeat){ ne raboti 
-        //alert(language == 'en' ? 'Passwords not match' : 'Лозинките не се совпаѓаат');
-        //return ;
-    }
+    $("document").ready(function(){
+         $("#passwordField, #repeatPasswordField").on("keyup", function () {
+            if ($("#passwordField").val() == $("#repeatpasswordField").val()) {
+                 alert("You have been registered!")  ;
+    }        else 
+                 alert("Your passwords don't match!")
+});
+    });
     
     firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((user) => {
