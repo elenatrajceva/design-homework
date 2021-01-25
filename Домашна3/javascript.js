@@ -30,9 +30,9 @@ function register() {
         alert(language = 'en' ? 'All fields are required!' : "Сите полиња се задолжителни");
         return;
     }
-    if(password !== passwordRepeat){
-        alert(language == 'en' ? 'Passwords not match' : 'Лозинките не се совпаѓаат');
-        return ;
+    //if(password !== passwordRepeat){ ne raboti 
+        //alert(language == 'en' ? 'Passwords not match' : 'Лозинките не се совпаѓаат');
+        //return ;
     }
     
     firebase.auth().createUserWithEmailAndPassword(email, password)
