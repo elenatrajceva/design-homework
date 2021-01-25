@@ -28,18 +28,17 @@ function register() {
     let passwordRepeat = document.getElementById('repeatPasswordField').value;
     if(email === '' || password === '' || passwordRepeat === ''){
         alert(language = 'en' ? 'All fields are required!' : "Сите полиња се задолжителни");
-        return;
-        
-         $("document").ready(function(){
-         $("#passwordField, #repeatPasswordField").on("keyup", function () {
-            if ($("#passwordField").val() == $("#repeatpasswordField").val()) {
-                 alert("You have been registered!")  ;
-    }        else 
-                 alert("Your passwords don't match!")
-});
-    });
+       //return;
+    if (password.value == passwordRepeat
+     {   
+        alert("Successful registration!");
+     }
+    else
+    {
+        alert("Your passwords don't match!");
     }
-   
+    return;
+}
     
     firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((user) => {
