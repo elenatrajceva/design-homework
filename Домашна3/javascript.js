@@ -29,16 +29,12 @@ function register() {
    // if(email === '' || password === '' || passwordRepeat === ''){
        // alert(language = 'en' ? 'All fields are required!' : "Сите полиња се задолжителни");
        //return;
-    if (password.value == passwordRepeat)
-     {   
-        alert("Successful registration!");
-     }
-    else
-    {
-        alert("Your passwords don't match!");
+    
+    if(password !== passwordRepeat){ 
+        alert(language == 'en' ? 'Passwords not match' : 'Лозинките не се совпаѓаат');
+        return ;
     }
-    return;
-}
+   
     
     firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((user) => {
