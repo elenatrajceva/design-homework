@@ -29,8 +29,8 @@ function register() {
     if(email === '' || password === '' || passwordRepeat === ''){
         alert(language = 'en' ? 'All fields are required!' : "Сите полиња се задолжителни");
         return;
-    }
-    $("document").ready(function(){
+        
+         $("document").ready(function(){
          $("#passwordField, #repeatPasswordField").on("keyup", function () {
             if ($("#passwordField").val() == $("#repeatpasswordField").val()) {
                  alert("You have been registered!")  ;
@@ -38,6 +38,8 @@ function register() {
                  alert("Your passwords don't match!")
 });
     });
+    }
+   
     
     firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((user) => {
