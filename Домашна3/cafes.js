@@ -70,28 +70,26 @@ function myFunction() {
         }
     }
 }
-// parseData();
-//
-// function parseData() {
-//     $.ajax({
-//         url: 'kafe.csv',
-//         dataType: 'text',
-//     }).done(successFunction);
-// }
-//
-// function successFunction(data) {
-//     var allRows = data.split(/\r?\n|\r/);
-//     var table = '<table>';
-//     for (var singleRow = 1; singleRow < allRows.length; singleRow++) {
-//         var rowCells = allRows[singleRow].split(',');
-//         table += '<tr>';
-//         table += '<td onclick="showLocation(this)">';
-//         table += rowCells[3] + '</td>';
-//         table += '<td>' + rowCells[4] + '<br>' + rowCells[5] + '<br>';
-//         table += '</td>';
-//         table += '</tr>';
-//     }
-//     table += '</tbody>';
-//     table += '</table>';
-//     // $('body').append(table);
-// }
+parseData();
+function parseData() {
+    $.ajax({
+        url: 'kafe.csv',
+        dataType: 'text',
+    }).done(successFunction);
+}
+function successFunction(data) {
+    var allRows = data.split(/\r?\n|\r/);
+    var table = '<table>';
+    for (var singleRow = 1; singleRow < allRows.length; singleRow++) {
+        var rowCells = allRows[singleRow].split(',');
+        table += '<tr>';
+        table += '<td onclick="showLocation(this)">';
+        table += rowCells[3] + '</td>';
+        table += '<td>' + rowCells[4] + '<br>' + rowCells[5] + '<br>';
+        table += '</td>';
+        table += '</tr>';
+    }
+    table += '</tbody>';
+    table += '</table>';
+    $('body').append(table);
+}
