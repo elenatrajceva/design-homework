@@ -70,8 +70,8 @@ function myFunction() {
         }
     }
 }
-
-function loadLocations(where) {
+tabela(findGetParameter('where'));
+function tabela(where) {
     $.ajax({
         url: 'kafe.csv',
         dataType: 'text',
