@@ -72,26 +72,45 @@ function myFunction() {
 }
 
 
-//parseData();
-//function parseData() {
-//    $.ajax({
-//        url: 'kafe.csv',
-//        dataType: 'text',
-//    }).done(successFunction);
-//}
-//function successFunction(data) {
-//    var allRows = data.split(/\r?\n|\r/);
-//    var table = '<table>';
-//    for (var singleRow = 1; singleRow < allRows.length; singleRow++) {
-//        var rowCells = allRows[singleRow].split(',');
-//        table += '<tr>';
-//        table += '<td onclick="showLocation(this)">';
-//        table += rowCells[3] + '</td>';
-//        table += '<td>' + rowCells[4] + '<br>' + rowCells[5] + '<br>';
-//        table += '</td>';
-//        table += '</tr>';
-//    }
-//    table += '</tbody>';
-//    table += '</table>';
-//    $('body').append(table);
-//}
+function showLocation(name){
+    $.ajax({
+        url: 'kafe.csv',
+        dataType: 'text',
+    }).done(find);
+    function find(data){
+        var allRows = data.split(/\r?\n|\r/);
+        for (var singleRow = 1; singleRow < allRows.length; singleRow++) {
+            var rowCells = allRows[singleRow].split(',');
+            console.log(name.innerText);
+            if (rowCells[3] === name.innerHTML){
+                L.marker({lon: parseFloat(rowCells[2]), lat: parseFloat(rowCells[1])}).addTo(map);
+            }
+        }
+    }
+}
+
+parseData();
+function parseData() {
+    $.ajax({
+        url: 'kafe.csv',
+        dataType: 'text',
+    }).done(successFunction);
+}
+function successFunction(data) {
+    var allRows = data.split(/\r?\n|\r/);
+    var table = '<table>';
+    for (var singleRow = 1; singleRow < allRows.length; singleRow++) {
+        var rowCells = allRows[singleRow].split(',');
+        if(findGetParameter('where') !== rowCells[4]) continue;
+        table += '<tr>';
+        table += '<td onclick="showLocation(this)">';
+        table += rowCells[3] + '</td>';
+        table += '<td>' + rowCells[4] + '<br>' + rowCells[5] + '<br>';
+        table += '</td>';
+        table += '</tr>';
+    }
+    table += '</tbody>';
+    table += '</table>';
+
+    document.getElementById("list").innerHTML=table;
+}
