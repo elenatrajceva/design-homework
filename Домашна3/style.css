@@ -95,8 +95,7 @@ button{
     /* flex: 1 1 auto; */
     height: 100px;
     display: center;
-    flex-flow: column;
-    align-items: stretch;
+    
 }
 /*#mapLayout{
     height: 100vh;
