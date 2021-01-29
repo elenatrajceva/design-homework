@@ -93,7 +93,10 @@ button{
 #map {
     /* configure the size of the map */
     /* flex: 1 1 auto; */
-    height: 500px;
+    height: 100px;
+    display: center;
+    flex-flow: column;
+    align-items: stretch;
 }
 /*#mapLayout{
     height: 100vh;
