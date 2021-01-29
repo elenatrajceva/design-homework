@@ -93,7 +93,7 @@ button{
 #map {
     /* configure the size of the map */
     /* flex: 1 1 auto; */
-    height: 100px;
+    height: 500px;
 }
 /*#mapLayout{
     height: 100vh;
