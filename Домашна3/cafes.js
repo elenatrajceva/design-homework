@@ -82,7 +82,7 @@ function showLocation(name){
         for (var singleRow = 1; singleRow < allRows.length; singleRow++) {
             var rowCells = allRows[singleRow].split(',');
             console.log(name.innerText);
-            if (rowCells[3] === name.innerHTML){
+            if (rowCells[3] === name.innerText){
                 L.marker({lon: parseFloat(rowCells[2]), lat: parseFloat(rowCells[1])}).addTo(map);
             }
         }
