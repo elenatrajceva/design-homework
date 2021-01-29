@@ -94,7 +94,8 @@ button{
     /* configure the size of the map */
     /* flex: 1 1 auto; */
     height: 100px;
-    display: center;
+    width: 50%
+   
     
 }
 /*#mapLayout{
